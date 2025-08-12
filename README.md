@@ -58,7 +58,7 @@ A modern web application that uses AI to transform casual emails into profession
    
    Edit `.env` and add your OpenAI API key:
    ```
-   OPENAI_API_KEY=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
+   OPENAI_API_KEY=your_openai_api_key_here
    PORT=3001
    ```
 

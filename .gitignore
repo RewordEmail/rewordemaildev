@@ -38,18 +38,3 @@ dist/
 *.njsproj
 *.sln
 *.sw?
-
-# Environment variables and secrets
-.env
-.env.local
-.env.development
-.env.production
-server/.env
-server/.env.backup
-server/.env.save
-server/env.example
-server/firebase-service-account.json
-
-# Build outputs
-build/
-dist/

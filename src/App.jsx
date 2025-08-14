@@ -320,7 +320,7 @@ function App() {
       <header>
         <div className="container">
           <div className="logo">
-            <img src="/src/assets/RewordEmailLogo.png" alt="RewordEmail Logo" className="logo-image" />
+            <img src="/logo.png" alt="RewordEmail Logo" className="logo-image" />
           </div>
           <Subscription />
         </div>

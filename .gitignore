@@ -39,5 +39,4 @@ dist/
 *.sln
 *.sw?
 
-# Project documentation (private)
-README.md
+

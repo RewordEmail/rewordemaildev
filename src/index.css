@@ -847,13 +847,15 @@ main .container {
   
   /* Hide premium text on mobile, just show crown */
   .plan-text {
-    font-size: 0; /* Hide text but keep element for crown */
+    display: none; /* Completely hide the text element */
   }
   
-  /* Show crown icon on mobile */
-  .plan-text::after {
+  /* Add crown before the subscription actions on mobile */
+  .subscription-actions::before {
     content: "👑";
-    font-size: 1rem; /* Restore font size for crown */
+    font-size: 1rem;
     display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: middle;
   }
 }

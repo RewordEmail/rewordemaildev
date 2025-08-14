@@ -38,3 +38,6 @@ dist/
 *.njsproj
 *.sln
 *.sw?
+
+# Project documentation (private)
+README.md

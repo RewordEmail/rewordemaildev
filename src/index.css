@@ -843,4 +843,16 @@ main .container {
     min-width: 160px;
     background: red !important; /* Temporary test to see if mobile styles work */
   }
+  
+  /* Hide premium text on mobile, just show crown */
+  .plan-text {
+    font-size: 0; /* Hide text but keep element for crown */
+  }
+  
+  /* Show crown icon on mobile */
+  .plan-text::after {
+    content: "👑";
+    font-size: 1rem; /* Restore font size for crown */
+    display: inline-block;
+  }
 }

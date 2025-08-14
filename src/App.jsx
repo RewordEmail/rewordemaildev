@@ -99,14 +99,54 @@ function App() {
 
   const handleCopyClick = async () => {
     try {
-      await navigator.clipboard.writeText(formalizedEmail);
-      setCopyButtonPressed(true);
-      setShowCopiedMessage(true);
-      setTimeout(() => setShowCopiedMessage(false), 4000);
-      // Keep the button pressed state for 4 seconds
-      setTimeout(() => setCopyButtonPressed(false), 4000);
+      // Try modern clipboard API first (works on most modern browsers)
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(formalizedEmail);
+        setCopyButtonPressed(true);
+        setShowCopiedMessage(true);
+        setTimeout(() => setShowCopiedMessage(false), 4000);
+        setTimeout(() => setCopyButtonPressed(false), 4000);
+        return;
+      }
+      
+      // Fallback for older browsers and mobile: create temporary textarea
+      const textArea = document.createElement('textarea');
+      textArea.value = formalizedEmail;
+      
+      // Make it invisible but accessible
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      textArea.style.top = '-999999px';
+      textArea.style.opacity = '0';
+      textArea.style.pointerEvents = 'none';
+      textArea.style.zIndex = '-1';
+      
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      
+      try {
+        // Try execCommand (older browsers, some mobile)
+        const successful = document.execCommand('copy');
+        if (successful) {
+          setCopyButtonPressed(true);
+          setShowCopiedMessage(true);
+          setTimeout(() => setShowCopiedMessage(false), 4000);
+          setTimeout(() => setCopyButtonPressed(false), 4000);
+        } else {
+          throw new Error('execCommand copy failed');
+        }
+      } catch (execError) {
+        // Final fallback: prompt user to copy manually
+        alert('Please copy this text manually:\n\n' + formalizedEmail);
+      } finally {
+        document.body.removeChild(textArea);
+      }
+      
     } catch (error) {
       console.error('Failed to copy to clipboard:', error);
+      // Show user-friendly error
+      alert('Copy failed. Please select and copy the text manually.');
     }
   }
 

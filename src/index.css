@@ -803,7 +803,6 @@ main .container {
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
-    border: 3px solid blue !important; /* Temporary test for mobile styles */
   }
   
   .hero h2 {
@@ -838,10 +837,12 @@ main .container {
   }
   
   .dropdown-menu {
-    right: auto;
-    left: 0;
+    right: 0;
+    left: auto;
     min-width: 160px;
-    background: red !important; /* Temporary test to see if mobile styles work */
+    /* Ensure dropdown stays on screen */
+    max-width: calc(100vw - 2rem);
+    transform: translateX(0);
   }
   
   /* Hide premium text on mobile, just show crown */

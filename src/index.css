@@ -272,6 +272,29 @@ header {
   font-weight: 500;
 }
 
+/* Or divider styles */
+.or-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+  gap: 1rem;
+}
+
+.line {
+  height: 1px;
+  background: #e5e7eb;
+  flex: 1;
+  max-width: 100px;
+}
+
+.or-text {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 /* Consistent button styles */
 .auth-btn, .subscribe-btn, .logout-btn, .signin-btn, .signout-btn, .manage-subscription-btn {
   height: 36px;

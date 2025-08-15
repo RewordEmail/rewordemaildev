@@ -330,7 +330,13 @@ function App() {
         <div className="container">
           {/* Input Section */}
           <section className="input-section" aria-label="Email Input">
-            <h1>Remix your Email</h1>
+            <h1>Formal Emails Fast</h1>
+            
+            <div className="or-divider">
+              <div className="line"></div>
+              <span className="or-text">or</span>
+              <div className="line"></div>
+            </div>
             
             <div className="email-input-container">
               <label htmlFor="email-input" className="sr-only">Email to formalize</label>

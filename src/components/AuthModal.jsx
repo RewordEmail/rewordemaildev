@@ -61,8 +61,10 @@ export default function AuthModal({ isOpen, onClose }) {
             Continue with Google
           </button>
 
-          <div className="auth-divider">
-            <span>or</span>
+          <div className="or-divider">
+            <div className="line"></div>
+            <span className="or-text">or</span>
+            <div className="line"></div>
           </div>
 
           {/* Email/Password Form */}
